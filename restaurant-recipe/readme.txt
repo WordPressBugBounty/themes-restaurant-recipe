@@ -3,9 +3,9 @@
 Contributors: acmethemes
 Tags: food-and-drink, portfolio, e-commerce, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template ,post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
 Requires at least: 4.8
-Tested up to: 6.2
+Tested up to: 6.7
 Requires PHP: 5.6.20
-Stable tag: 3.0.6
+Stable tag: 3.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,10 @@ Restaurant Recipe is a beautiful and highly responsive WordPress theme designed 
 3. Add/Edit Widgets, Page and Post
 
 == Change log ==
+
+= 3.0.7 - Jan 22 2025 =
+* Added: Enhanced support for the latest WordPress version.
+* Updated: Improved CSS compatibility.
 
 = 3.0.6 - August 01 2023 =
 * Added: Recommended Classic Widgets plugin
