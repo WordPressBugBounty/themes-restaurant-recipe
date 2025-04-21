@@ -8,7 +8,7 @@
  * @subpackage Restaurant Recipe
  */
 get_header();
-global $restaurant_recipe_customizer_all_values;
+$restaurant_recipe_customizer_all_values = restaurant_recipe_get_theme_options();
 ?>
 <div class="wrapper inner-main-title">
 	<?php
@@ -26,7 +26,7 @@ global $restaurant_recipe_customizer_all_values;
 <div id="content" class="site-content container clearfix">
 	<?php
 	$sidebar_layout = restaurant_recipe_sidebar_selection();
-	if( 'both-sidebar' == $sidebar_layout ) {
+	if ( 'both-sidebar' == $sidebar_layout ) {
 		echo '<div id="primary-wrap" class="clearfix">';
 	}
 	?>
@@ -36,7 +36,8 @@ global $restaurant_recipe_customizer_all_values;
 		if ( have_posts() ) :
 
 			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			while ( have_posts() ) :
+				the_post();
 
 				/**
 				 * Run the loop for the search to output the results.
@@ -49,6 +50,7 @@ global $restaurant_recipe_customizer_all_values;
 
 			/**
 			 * restaurant_recipe_action_posts_navigation hook
+			 *
 			 * @since Restaurant Recipe 1.0.0
 			 *
 			 * @hooked restaurant_recipe_posts_navigation - 10
@@ -59,16 +61,18 @@ global $restaurant_recipe_customizer_all_values;
 
 			get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
+		endif;
+		?>
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
 	<?php
 	get_sidebar( 'left' );
 	get_sidebar();
-	if( 'both-sidebar' == $sidebar_layout ) {
+	if ( 'both-sidebar' == $sidebar_layout ) {
 		echo '</div>';
 	}
 	?>
 </div><!-- #content -->
-<?php get_footer();
+<?php
+get_footer();

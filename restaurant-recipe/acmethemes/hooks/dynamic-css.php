@@ -1,51 +1,51 @@
 <?php
 /**
  * Dynamic css
+ *
  * @since Restaurant Recipe 1.0.0
  *
  * @param null
  * @return void
- *
  */
 if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
 
-    function restaurant_recipe_dynamic_css() {
+	function restaurant_recipe_dynamic_css() {
 
-        global $restaurant_recipe_customizer_all_values;
+		$restaurant_recipe_customizer_all_values = restaurant_recipe_get_theme_options();
 
-        /*header height*/
-        $restaurant_recipe_header_height            = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-header-height'] );
+		/*header height*/
+		$restaurant_recipe_header_height = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-header-height'] );
 
-	    /*Color options */
-        $restaurant_recipe_primary_color            = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-primary-color'] );
-	    $restaurant_recipe_link_color               = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-link-color'] );
-	    $restaurant_recipe_link_hover_color         = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-link-hover-color'] );
-	    
-        $restaurant_recipe_header_top_bg_color      = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-header-top-bg-color'] );
-        $restaurant_recipe_footer_bg_color          = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-footer-bg-color'] );
-        $restaurant_recipe_footer_bottom_bg_color   = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-footer-bottom-bg-color'] );
+		/*Color options */
+		$restaurant_recipe_primary_color    = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-primary-color'] );
+		$restaurant_recipe_link_color       = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-link-color'] );
+		$restaurant_recipe_link_hover_color = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-link-hover-color'] );
 
-        /*Animation*/
-        $restaurant_recipe_enable_animation = $restaurant_recipe_customizer_all_values['restaurant-recipe-enable-animation'];
+		$restaurant_recipe_header_top_bg_color    = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-header-top-bg-color'] );
+		$restaurant_recipe_footer_bg_color        = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-footer-bg-color'] );
+		$restaurant_recipe_footer_bottom_bg_color = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-footer-bottom-bg-color'] );
 
-	    $custom_css = '';
+		/*Animation*/
+		$restaurant_recipe_enable_animation = $restaurant_recipe_customizer_all_values['restaurant-recipe-enable-animation'];
 
-        /*animation*/
-        if( 1 == $restaurant_recipe_enable_animation ){
-            $custom_css .= "
+		$custom_css = '';
+
+		/*animation*/
+		if ( 1 == $restaurant_recipe_enable_animation ) {
+			$custom_css .= '
              .init-animate {
                 visibility: visible !important;
              }
-             ";
-        }
-        /*background*/
-	    $restaurant_recipe_header_image_display = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-header-image-display'] );
-	    if( 'bg-image' == $restaurant_recipe_header_image_display || 'hide' == $restaurant_recipe_header_image_display ){
-		    $bg_image_url ='';
-		    if( get_header_image() && 'bg-image' == $restaurant_recipe_header_image_display ){
-			    $bg_image_url = esc_url( get_header_image() );
-		    }
-		    $custom_css .= "
+             ';
+		}
+		/*background*/
+		$restaurant_recipe_header_image_display = esc_attr( $restaurant_recipe_customizer_all_values['restaurant-recipe-header-image-display'] );
+		if ( 'bg-image' == $restaurant_recipe_header_image_display || 'hide' == $restaurant_recipe_header_image_display ) {
+			$bg_image_url = '';
+			if ( get_header_image() && 'bg-image' == $restaurant_recipe_header_image_display ) {
+				$bg_image_url = esc_url( get_header_image() );
+			}
+			$custom_css .= "
               .inner-main-title {
                 background-image:url('{$bg_image_url}');
                 background-repeat:no-repeat;
@@ -55,22 +55,22 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
                 background-position: center; 
                 height: {$restaurant_recipe_header_height}px;
             }";
-	    }
+		}
 
-        /*color*/
-        $custom_css .= "
+		/*color*/
+		$custom_css .= "
             .top-header{
                 background-color: {$restaurant_recipe_header_top_bg_color};
             }";
-        $custom_css .= "
+		$custom_css .= "
             .site-footer{
                 background-color: {$restaurant_recipe_footer_bg_color};
             }";
-        $custom_css .= "
+		$custom_css .= "
             .copy-right{
                 background-color: {$restaurant_recipe_footer_bottom_bg_color};
             }";
-        $custom_css .= "
+		$custom_css .= "
             .site-title:hover,
 	        .site-title a:hover,
 	        .site-title a:focus,
@@ -124,8 +124,8 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
                 color: {$restaurant_recipe_primary_color};
             }";
 
-        /*background color*/
-        $custom_css .= "
+		/*background color*/
+		$custom_css .= "
             .navbar .navbar-toggle:hover,
             .navbar .navbar-toggle:focus,
             .main-navigation .current_page_ancestor > a:before,
@@ -192,8 +192,8 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
                 border:1px solid {$restaurant_recipe_primary_color};
             }";
 
-        /*borders*/
-	    $custom_css .= "
+		/*borders*/
+		$custom_css .= "
             .woocommerce .cart .button, 
             .woocommerce .cart input.button,
             .woocommerce a.button.add_to_cart_button,
@@ -214,14 +214,14 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
 			.woocommerce div.product .woocommerce-tabs ul.tabs:before{
                 border: 1px solid {$restaurant_recipe_primary_color};
             }";
-        $custom_css .= "
+		$custom_css .= "
             .blog article.sticky{
                 border-bottom: 2px solid {$restaurant_recipe_primary_color};
             }";
 
-	    /*Colors options*/
+		/*Colors options*/
 
-	    $custom_css .= "
+		$custom_css .= "
         a,
         .posted-on a,
         .single-item .fa,
@@ -238,7 +238,7 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
          {
             color: {$restaurant_recipe_link_color};
         }";
-	    $custom_css .= "
+		$custom_css .= "
         a:hover,
         a:active,
         a:focus,
@@ -265,14 +265,13 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
             color: {$restaurant_recipe_link_hover_color};
         }";
 
-
-        $custom_css .= "
+		$custom_css .= "
        .btn-reverse,
        .at-price h2{
             color: {$restaurant_recipe_primary_color};
         }";
 
-        $custom_css .= "
+		$custom_css .= "
        .btn-reverse:hover,
        .image-slider-wrapper .slider-content .btn-reverse:hover,
        .at-widgets.at-parallax .btn-reverse:hover,
@@ -283,8 +282,8 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
             color:#fff;
             border-color:{$restaurant_recipe_primary_color};
         }";
-        
-        $custom_css .= "        
+
+		$custom_css .= "        
        .woocommerce #respond input#submit, 
        .woocommerce a.button, 
        .woocommerce button.button, 
@@ -293,33 +292,33 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
             color:#fff;
         }";
 
-        /*secondary color*/
-	    $custom_css .= "
+		/*secondary color*/
+		$custom_css .= "
        .team-img-box:before{
             -webkit-box-shadow: 0 -106px 92px -35px {$restaurant_recipe_header_top_bg_color} inset;
 			box-shadow: 0 -106px 92px -35px {$restaurant_recipe_header_top_bg_color} inset;
         }";
 
-	    $custom_css .= "
+		$custom_css .= "
        .at-pricing-box:hover .at-pricing-img-box::before{
             -webkit-box-shadow: 0 -130px 92px -35px {$restaurant_recipe_header_top_bg_color} inset;
             box-shadow: 0 -130px 92px -35px {$restaurant_recipe_header_top_bg_color} inset;
         }";
-	    
-        // Added color options
-        $custom_css .= "
+
+		// Added color options
+		$custom_css .= "
         
        .filters.button-group button:hover,
        .filters.button-group button:focus{
             background: {$restaurant_recipe_primary_color};
             color:#fff;
         }";
-        $custom_css .= "
+		$custom_css .= "
         article.post .entry-header .cat-links a:after{
             background: {$restaurant_recipe_primary_color};
         }";
 
-        $custom_css .= "
+		$custom_css .= "
         .contact-form div.wpforms-container-full .wpforms-form input[type='submit'], 
         .contact-form div.wpforms-container-full .wpforms-form button[type='submit'], 
         .contact-form div.wpforms-container-full .wpforms-form .wpforms-page-button{
@@ -328,7 +327,7 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
             border:1px solid {$restaurant_recipe_primary_color};
         }";
 
-        $custom_css .= "
+		$custom_css .= "
         .acme-accordions .accordion-title.active,
         .acme-accordions .accordion-title.active a .accordion-icon,
         .acme-accordions .accordion-title.active a{
@@ -337,21 +336,21 @@ if ( ! function_exists( 'restaurant_recipe_dynamic_css' ) ) :
              
         }";
 
-        $custom_css .= "
+		$custom_css .= "
        .scroll-box span:after,
        .sm-up-container,
        .at-pricing-img-box .at-price{
             background:{$restaurant_recipe_link_color};
              
         }";
-        $custom_css .= "
+		$custom_css .= "
        .sm-up-container:hover,
        .sm-up-container:focus{
             background:{$restaurant_recipe_link_hover_color};
              
         }";
 
-        wp_add_inline_style( 'restaurant-recipe-style', $custom_css );
-    }
+		wp_add_inline_style( 'restaurant-recipe-style', $custom_css );
+	}
 endif;
 add_action( 'wp_enqueue_scripts', 'restaurant_recipe_dynamic_css', 99 );

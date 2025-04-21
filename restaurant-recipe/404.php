@@ -8,7 +8,7 @@
  * @subpackage Restaurant Recipe
  */
 get_header();
-global $restaurant_recipe_customizer_all_values;
+$restaurant_recipe_customizer_all_values = restaurant_recipe_get_theme_options();
 ?>
 <div class="wrapper inner-main-title">
 	<?php
@@ -30,12 +30,12 @@ global $restaurant_recipe_customizer_all_values;
 				<div class="page-content">
 					<div class="row">
 						<div class="col-md-5 col-sm-5">
-							<h1><?php esc_html_e('404','restaurant-recipe'); ?></h1>
+							<h1><?php esc_html_e( '404', 'restaurant-recipe' ); ?></h1>
 						</div>
 						<div class="col-md-7 col-sm-7">
 							<div class="error-content">
 								<h3>
-									<?php esc_html_e('Sorry! We could not found that page','restaurant-recipe'); ?>
+									<?php esc_html_e( 'Sorry! We could not found that page', 'restaurant-recipe' ); ?>
 								</h3>
 								<p>
 								<?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'restaurant-recipe' ); ?>
@@ -51,4 +51,5 @@ global $restaurant_recipe_customizer_all_values;
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div><!-- #content -->
-<?php get_footer();
+<?php
+get_footer();

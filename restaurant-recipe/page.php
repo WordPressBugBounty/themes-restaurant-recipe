@@ -13,13 +13,13 @@
  * @subpackage Restaurant Recipe
  */
 get_header();
-global $restaurant_recipe_customizer_all_values;
+$restaurant_recipe_customizer_all_values  = restaurant_recipe_get_theme_options();
 $restaurant_recipe_hide_front_page_header = $restaurant_recipe_customizer_all_values['restaurant-recipe-hide-front-page-header'];
 
-if(
+if (
 	( is_front_page() && 1 != $restaurant_recipe_hide_front_page_header )
-	|| !is_front_page()
-){
+	|| ! is_front_page()
+) {
 	?>
 	<div class="wrapper inner-main-title">
 		<?php
@@ -28,7 +28,7 @@ if(
 		<div class="container">
 			<header class="entry-header init-animate">
 				<?php
-                the_title( '<h1 class="entry-title">', '</h1>' );
+				the_title( '<h1 class="entry-title">', '</h1>' );
 
 				restaurant_recipe_breadcrumbs();
 				?>
@@ -41,14 +41,15 @@ if(
 <div id="content" class="site-content container clearfix">
 	<?php
 	$sidebar_layout = restaurant_recipe_sidebar_selection();
-	if( 'both-sidebar' == $sidebar_layout ) {
+	if ( 'both-sidebar' == $sidebar_layout ) {
 		echo '<div id="primary-wrap" class="clearfix">';
 	}
 	?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			<?php
-			while ( have_posts() ) : the_post();
+			while ( have_posts() ) :
+				the_post();
 
 				get_template_part( 'template-parts/content', 'page' );
 
@@ -65,9 +66,10 @@ if(
 	get_sidebar( 'left' );
 	get_sidebar();
 
-	if( 'both-sidebar' == $sidebar_layout ) {
+	if ( 'both-sidebar' == $sidebar_layout ) {
 		echo '</div>';
 	}
 	?>
 </div><!-- #content -->
-<?php get_footer();
+<?php
+get_footer();

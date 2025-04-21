@@ -2,18 +2,19 @@
 if ( ! function_exists( 'restaurant_recipe_excerpt_length' ) ) :
 	/**
 	 * Excerpt length
+	 *
 	 * @since Restaurant Recipe 1.0.0
 	 *
 	 * @param int $length number of words
 	 * @return int
 	 */
 	function restaurant_recipe_excerpt_length( $length ) {
-		if( is_admin() ){
+		if ( is_admin() ) {
 			return $length;
 		}
 
-		global $restaurant_recipe_customizer_all_values;
-		$excerpt_length = absint( $restaurant_recipe_customizer_all_values['restaurant-recipe-blog-archive-excerpt-length'] );
+		$restaurant_recipe_customizer_all_values = restaurant_recipe_get_theme_options();
+		$excerpt_length                          = absint( $restaurant_recipe_customizer_all_values['restaurant-recipe-blog-archive-excerpt-length'] );
 		if ( empty( $excerpt_length ) ) {
 			$excerpt_length = $length;
 		}
@@ -33,14 +34,13 @@ if ( ! function_exists( 'restaurant_recipe_content_more_link' ) ) :
 	 */
 	function restaurant_recipe_content_more_link( $more_link, $more_original_text ) {
 
-		global $restaurant_recipe_customizer_all_values;
-		$more_text = esc_html( $restaurant_recipe_customizer_all_values['restaurant-recipe-blog-archive-more-text'] );
+		$restaurant_recipe_customizer_all_values = restaurant_recipe_get_theme_options();
+		$more_text                               = esc_html( $restaurant_recipe_customizer_all_values['restaurant-recipe-blog-archive-more-text'] );
 		if ( ! empty( $more_text ) ) {
 			$more_link = str_replace( $more_original_text, esc_html( $more_text ), $more_link );
 			$more_link = str_replace( 'more-link', 'more-link btn btn-primary', $more_link );
 		}
 		return $more_link;
-
 	}
 endif;
 
@@ -55,12 +55,12 @@ if ( ! function_exists( 'restaurant_recipe_excerpt_read_more' ) ) :
 	 */
 	function restaurant_recipe_excerpt_read_more( $more ) {
 
-		$output = $more;
-		global $restaurant_recipe_customizer_all_values;
-		$more_text = esc_html( $restaurant_recipe_customizer_all_values['restaurant-recipe-blog-archive-more-text'] );
+		$output                                  = $more;
+		$restaurant_recipe_customizer_all_values = restaurant_recipe_get_theme_options();
+		$more_text                               = esc_html( $restaurant_recipe_customizer_all_values['restaurant-recipe-blog-archive-more-text'] );
 		if ( ! empty( $more_text ) ) {
-			$output = ' <br /><a href="'. esc_url( get_permalink() ) . '" class="more-link btn btn-primary">' . esc_html( $more_text ) . '</a>';
-			$output = apply_filters( 'restaurant_recipe_filter_read_more_link' , $output );
+			$output = ' <br /><a href="' . esc_url( get_permalink() ) . '" class="more-link btn btn-primary">' . esc_html( $more_text ) . '</a>';
+			$output = apply_filters( 'restaurant_recipe_filter_read_more_link', $output );
 		}
 		return $output;
 	}
