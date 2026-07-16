@@ -47,14 +47,14 @@ if ( ! class_exists( 'Restaurant_Recipe_Testimonial' ) ) {
 
 	        ?>
             <p>
-                <label for="<?php echo $this->get_field_id( 'unique_id' ); ?>"><?php esc_html_e( 'Section ID', 'restaurant-recipe' ); ?></label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'unique_id' ); ?>" name="<?php echo $this->get_field_name( 'unique_id' ); ?>" type="text" value="<?php echo $unique_id; ?>" />
+                <label for="<?php echo esc_attr( $this->get_field_id( 'unique_id' ) ); ?>"><?php esc_html_e( 'Section ID', 'restaurant-recipe' ); ?></label>
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'unique_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'unique_id' ) ); ?>" type="text" value="<?php echo $unique_id; ?>" />
                 <br />
                 <small><?php esc_html_e('Enter a Unique Section ID. You can use this ID in Menu item for enabling One Page Menu.','restaurant-recipe')?></small>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title', 'restaurant-recipe' ); ?></label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+                <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'restaurant-recipe' ); ?></label>
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo $title; ?>" />
             </p>
             <!--updated code-->
             <label><?php esc_html_e( 'Select Pages', 'restaurant-recipe' ); ?></label>
@@ -156,8 +156,8 @@ if ( ! class_exists( 'Restaurant_Recipe_Testimonial' ) ) {
 		        ?>
             </div>
             <p>
-                <label for="<?php echo $this->get_field_id( 'content_from' ); ?>"><?php _e( 'Content From', 'restaurant-recipe' ); ?>:</label>
-                <select class="widefat" id="<?php echo $this->get_field_id( 'content_from' ); ?>" name="<?php echo $this->get_field_name( 'content_from' ); ?>">
+                <label for="<?php echo esc_attr( $this->get_field_id( 'content_from' ) ); ?>"><?php _e( 'Content From', 'restaurant-recipe' ); ?>:</label>
+                <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'content_from' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'content_from' ) ); ?>">
 			        <?php
 			        $restaurant_recipe_about_content_from = restaurant_recipe_content_from();
 			        foreach ( $restaurant_recipe_about_content_from as $key => $value ) {
@@ -169,16 +169,16 @@ if ( ! class_exists( 'Restaurant_Recipe_Testimonial' ) ) {
                 </select>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'content_number' ); ?>"><?php _e( 'Number of words in content', 'restaurant-recipe' ); ?>:</label>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'content_number' ) ); ?>"><?php _e( 'Number of words in content', 'restaurant-recipe' ); ?>:</label>
                 <br/>
                 <small>
 			        <?php esc_html_e('Please enter -1 to show full content or 0 to show none','restaurant-recipe'); ?>
                 </small>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'content_number' ); ?>" name="<?php echo $this->get_field_name( 'content_number' ); ?>" type="number" value="<?php echo $content_number; ?>" />
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'content_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'content_number' ) ); ?>" type="number" value="<?php echo $content_number; ?>" />
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'column_number' ); ?>"><?php esc_html_e( 'Column Number', 'restaurant-recipe' ); ?></label>
-                <select class="widefat" id="<?php echo $this->get_field_id( 'column_number' ); ?>" name="<?php echo $this->get_field_name( 'column_number' ); ?>" >
+                <label for="<?php echo esc_attr( $this->get_field_id( 'column_number' ) ); ?>"><?php esc_html_e( 'Column Number', 'restaurant-recipe' ); ?></label>
+                <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'column_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'column_number' ) ); ?>" >
                     <?php
                     $restaurant_recipe_testimonial_column_numbers = restaurant_recipe_widget_column_number();
                     foreach ( $restaurant_recipe_testimonial_column_numbers as $key => $value ){
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Testimonial' ) ) {
                 </select>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id('bg_image'); ?>">
+                <label for="<?php echo esc_attr( $this->get_field_id( 'bg_image' ) ); ?>">
 			        <?php esc_html_e( 'Select Background Image', 'restaurant-recipe' ); ?>
                 </label>
 		        <?php
@@ -202,7 +202,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Testimonial' ) ) {
                 <span class="img-preview-wrap" <?php echo  $restaurant_recipe_display_none ; ?>>
                     <img class="widefat" src="<?php echo esc_url( $bg_image ); ?>" alt="<?php esc_attr_e( 'Image preview', 'restaurant-recipe' ); ?>"  />
                 </span><!-- .img-preview-wrap -->
-                <input type="text" class="widefat" name="<?php echo $this->get_field_name('bg_image'); ?>" id="<?php echo $this->get_field_id('bg_image'); ?>" value="<?php echo esc_url( $bg_image ); ?>" />
+                <input type="text" class="widefat" name="<?php echo esc_attr( $this->get_field_name( 'bg_image' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'bg_image' ) ); ?>" value="<?php echo esc_url( $bg_image ); ?>" />
                 <input type="button" value="<?php esc_attr_e( 'Upload Image', 'restaurant-recipe' ); ?>" class="button media-image-upload" data-title="<?php esc_attr_e( 'Select Background Image','restaurant-recipe'); ?>" data-button="<?php esc_attr_e( 'Select Background Image','restaurant-recipe'); ?>"/>
                 <input type="button" value="<?php esc_attr_e( 'Remove Image', 'restaurant-recipe' ); ?>" class="button media-image-remove" />
             </p>
@@ -297,7 +297,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Testimonial' ) ) {
 	                    echo "</div>";
                     }
 	                ?>
-                    <div <?php echo $div_attr;?>>
+                    <div <?php echo esc_attr( $div_attr ); ?>>
                         <?php
                         $post_in = array();
                         if  ( is_array($at_all_page_items) && count($at_all_page_items) > 0 ){

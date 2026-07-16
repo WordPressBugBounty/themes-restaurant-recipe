@@ -2,10 +2,10 @@
 
 Contributors: acmethemes
 Tags: food-and-drink, portfolio, e-commerce, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template ,post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, wide-blocks
-Requires at least: 4.8
-Tested up to: 6.8
-Requires PHP: 5.6.20
-Stable tag: 3.0.8
+Requires at least: 6.6
+Tested up to: 7.0
+Requires PHP: 7.4
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,10 @@ Restaurant Recipe is a beautiful and highly responsive WordPress theme designed 
 3. Add/Edit Widgets, Page and Post
 
 == Change log ==
+
+= 4.0.0 - Jul 14 2026 =
+* Updated: WordPress 7.0 compatibility
+* Updated: Requires PHP 7.4
 
 = 3..0.8 - Apr 21 2025 =
 * Added: Tested with the latest WordPress.
@@ -132,7 +136,6 @@ Restaurant Recipe bundles the following third-party resources:
 
 Image used in the screenshot
 
-* https://pixabay.com/en/breakfast-delicious-drink-food-1835478/ - License CC0 Public Domain
 
 Other Images:
 - restaurant-recipe-inner-banner1920x600.jpg
@@ -140,3 +143,13 @@ Other Images:
 
 default-image.jpg
 *Self Created - License CC0 Public Domain
+
+== Installation ==
+
+1. Download the theme zip file.
+2. In your Admin Dashboard go to Appearance > Themes.
+3. Click on the Add New button.
+4. Click Upload Plugin and then click Choose File.
+5. Select the downloaded zip file and click Install Now.
+6. After installation, click Activate.
+

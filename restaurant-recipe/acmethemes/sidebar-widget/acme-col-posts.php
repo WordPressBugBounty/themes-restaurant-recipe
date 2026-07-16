@@ -65,8 +65,8 @@ if ( ! class_exists( 'Restaurant_Recipe_Posts_Col' ) ) {
 
 	        ?>
             <p>
-                <label for="<?php echo $this->get_field_id( 'unique_id' ); ?>"><?php _e( 'Section ID', 'restaurant-recipe' ); ?>:</label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'unique_id' ); ?>" name="<?php echo $this->get_field_name( 'unique_id' ); ?>" type="text" value="<?php echo $unique_id; ?>" />
+                <label for="<?php echo esc_attr( $this->get_field_id( 'unique_id' ) ); ?>"><?php _e( 'Section ID', 'restaurant-recipe' ); ?>:</label>
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'unique_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'unique_id' ) ); ?>" type="text" value="<?php echo $unique_id; ?>" />
                 <br />
                 <small><?php _e('Enter a Unique Section ID. You can use this ID in Menu item for enabling One Page Menu.','restaurant-recipe')?></small>
             </p>
@@ -142,8 +142,8 @@ if ( ! class_exists( 'Restaurant_Recipe_Posts_Col' ) ) {
                 <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'post_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_number' ) ); ?>" type="number" value="<?php echo $post_number; ?>" />
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'content_from' ); ?>"><?php _e( 'Content From', 'restaurant-recipe' ); ?>:</label>
-                <select class="widefat" id="<?php echo $this->get_field_id( 'content_from' ); ?>" name="<?php echo $this->get_field_name( 'content_from' ); ?>">
+                <label for="<?php echo esc_attr( $this->get_field_id( 'content_from' ) ); ?>"><?php _e( 'Content From', 'restaurant-recipe' ); ?>:</label>
+                <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'content_from' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'content_from' ) ); ?>">
 			        <?php
 			        $restaurant_recipe_about_content_from = restaurant_recipe_content_from();
 			        foreach ( $restaurant_recipe_about_content_from as $key => $value ) {
@@ -217,7 +217,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Posts_Col' ) ) {
 			        <?php
 			        $restaurant_recipe_image_sizes = restaurant_recipe_get_image_sizes_options();
 			        foreach( $restaurant_recipe_image_sizes as $key => $restaurant_recipe_column_array ){
-				        echo ' <option value="'.esc_attr( $key ).'" '.selected( $restaurant_recipe_img_size, $key, 0). '>'.esc_attr( $restaurant_recipe_column_array ).'</option>';
+				        echo ' <option value="'.esc_attr( $key ).'" '.selected( esc_attr( $restaurant_recipe_img_size ), $key, 0). '>'.esc_attr( $restaurant_recipe_column_array ).'</option>';
 			        }
 			        ?>
                 </select>
@@ -385,7 +385,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Posts_Col' ) ) {
                  
                         $div_attr = 'class="featured-entries-col"';
                         ?>
-                        <div <?php echo $div_attr;?>>
+                        <div <?php echo esc_attr( $div_attr ); ?>>
                             <?php
                             $restaurant_recipe_featured_index = 1;
                             while ( $restaurant_recipe_featured_query->have_posts() ) :$restaurant_recipe_featured_query->the_post();
@@ -432,7 +432,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Posts_Col' ) ) {
                                                 } 
                                                 ?>
                                             </div>
-                                            <div class="entry-content <?php echo $no_blog_image?>">
+                                            <div class="entry-content <?php echo esc_attr( $no_blog_image ); ?>">
                                                 <div class="entry-header-title">
                                                     <header class="entry-header">
                                                         <div class="entry-meta">

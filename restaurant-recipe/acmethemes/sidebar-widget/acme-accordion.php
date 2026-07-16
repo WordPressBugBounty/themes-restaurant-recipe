@@ -67,7 +67,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Accordion' ) ) {
             </p>
 
             <p>
-                <label for="<?php echo $this->get_field_id( 'page_id' ); ?>"><?php esc_html_e( 'Select Page For Contact', 'restaurant-recipe' ); ?>:</label>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'page_id' ) ); ?>"><?php esc_html_e( 'Select Page For Contact', 'restaurant-recipe' ); ?>:</label>
                 <br />
                 <small><?php esc_html_e( 'Select page and its title and excerpt will display in the frontend. No need of subpages.', 'restaurant-recipe' ); ?></small>
 		        <?php
@@ -84,8 +84,8 @@ if ( ! class_exists( 'Restaurant_Recipe_Accordion' ) ) {
 		        ?>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'single_page_content_from' ); ?>"><?php _e( 'Page Content From', 'restaurant-recipe' ); ?>:</label>
-                <select class="widefat" id="<?php echo $this->get_field_id( 'single_page_content_from' ); ?>" name="<?php echo $this->get_field_name( 'single_page_content_from' ); ?>">
+                <label for="<?php echo esc_attr( $this->get_field_id( 'single_page_content_from' ) ); ?>"><?php _e( 'Page Content From', 'restaurant-recipe' ); ?>:</label>
+                <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'single_page_content_from' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'single_page_content_from' ) ); ?>">
 			        <?php
 			        $restaurant_recipe_about_content_from = restaurant_recipe_content_from();
 			        foreach ( $restaurant_recipe_about_content_from as $key => $value ) {
@@ -97,12 +97,12 @@ if ( ! class_exists( 'Restaurant_Recipe_Accordion' ) ) {
                 </select>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'single_page_content_number' ); ?>"><?php _e( 'Number of page words in content', 'restaurant-recipe' ); ?>:</label>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'single_page_content_number' ) ); ?>"><?php _e( 'Number of page words in content', 'restaurant-recipe' ); ?>:</label>
                 <br/>
                 <small>
 			        <?php esc_html_e('Please enter -1 to show full content or 0 to show none','restaurant-recipe'); ?>
                 </small>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'single_page_content_number' ); ?>" name="<?php echo $this->get_field_name( 'single_page_content_number' ); ?>" type="number" value="<?php echo $single_page_content_number; ?>" />
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'single_page_content_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'single_page_content_number' ) ); ?>" type="number" value="<?php echo $single_page_content_number; ?>" />
             </p>
 
             <!--updated code-->
@@ -206,8 +206,8 @@ if ( ! class_exists( 'Restaurant_Recipe_Accordion' ) ) {
             </div>
             <!--updated code-->
             <p>
-                <label for="<?php echo $this->get_field_id( 'content_from' ); ?>"><?php _e( 'Content From', 'restaurant-recipe' ); ?>:</label>
-                <select class="widefat" id="<?php echo $this->get_field_id( 'content_from' ); ?>" name="<?php echo $this->get_field_name( 'content_from' ); ?>">
+                <label for="<?php echo esc_attr( $this->get_field_id( 'content_from' ) ); ?>"><?php _e( 'Content From', 'restaurant-recipe' ); ?>:</label>
+                <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'content_from' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'content_from' ) ); ?>">
 			        <?php
 			        $restaurant_recipe_about_content_from = restaurant_recipe_content_from();
 			        foreach ( $restaurant_recipe_about_content_from as $key => $value ) {
@@ -219,12 +219,12 @@ if ( ! class_exists( 'Restaurant_Recipe_Accordion' ) ) {
                 </select>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'content_number' ); ?>"><?php _e( 'Number of words in content', 'restaurant-recipe' ); ?>:</label>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'content_number' ) ); ?>"><?php _e( 'Number of words in content', 'restaurant-recipe' ); ?>:</label>
                 <br/>
                 <small>
 			        <?php esc_html_e('Please enter -1 to show full content or 0 to show none','restaurant-recipe'); ?>
                 </small>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'content_number' ); ?>" name="<?php echo $this->get_field_name( 'content_number' ); ?>" type="number" value="<?php echo $content_number; ?>" />
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'content_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'content_number' ) ); ?>" type="number" value="<?php echo $content_number; ?>" />
             </p>
             <p>
                 <label for="<?php echo esc_attr( $this->get_field_id( 'background_options' ) ); ?>"><?php esc_html_e( 'Background Options', 'restaurant-recipe' ); ?></label>
@@ -346,7 +346,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Accordion' ) ) {
 	                        if ( $contact_page_query->have_posts() ):
 		                        while( $contact_page_query->have_posts() ):$contact_page_query->the_post();
 			                        ?>
-                                    <div class="col-sm-6  <?php echo $animation; ?>">
+                                    <div class="col-sm-6  <?php echo esc_attr( $animation ); ?>">
                                         <div class="accordions-page-content">
 					                        <?php
 					                        the_title( '<h3 class="entry-title">', '</h3>' );
@@ -363,7 +363,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Accordion' ) ) {
 	                        wp_reset_postdata();
                         endif;
                         ?>
-                        <div class="<?php echo $next_col;?>">
+                        <div class="<?php echo esc_attr( $next_col ); ?>">
 
                             <div class="accordion-content">
 	                            <?php

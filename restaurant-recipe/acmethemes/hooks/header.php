@@ -187,7 +187,7 @@ if ( ! function_exists( 'restaurant_recipe_header' ) ) :
 			<?php
 		}
 		?>
-		<div class="navbar at-navbar <?php echo $restaurant_recipe_nav_class; ?>" id="navbar" role="navigation">
+		<div class="navbar at-navbar <?php echo esc_attr( $restaurant_recipe_nav_class ); ?>" id="navbar" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><i class="fa fa-bars"></i></button>

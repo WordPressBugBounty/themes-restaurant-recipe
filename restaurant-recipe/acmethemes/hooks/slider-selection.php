@@ -49,13 +49,13 @@ if ( ! function_exists( 'restaurant_recipe_default_slider' ) ) :
 		?>
 		<div class="image-slider-wrapper home-fullscreen ">
 			<div class="featured-slider">
-				<div class="item" style="<?php echo $bg_image_style; ?>">
-					<div class="slider-content <?php echo $text_align; ?>">
+				<div class="item" style="<?php echo esc_attr( $bg_image_style ); ?>">
+					<div class="slider-content <?php echo esc_attr( $text_align ); ?>">
 						<div class="container">
-							<div class="banner-title <?php echo $animation1; ?>">
+							<div class="banner-title <?php echo esc_attr( $animation1 ); ?>">
 								<?php esc_html_e( 'Restaurant Recipe - Hotel and Restaurant Theme', 'restaurant-recipe' ); ?>
 							</div>
-							<div class="image-slider-caption <?php echo $animation2; ?>">
+							<div class="image-slider-caption <?php echo esc_attr( $animation2 ); ?>">
 								<p><?php esc_html_e( 'Delicious Food, Quality Services and Friendly People', 'restaurant-recipe' ); ?></p>
 							</div>
 						</div>
@@ -148,7 +148,7 @@ function restaurant_recipe_slider_from_page() {
 						}
 						$slides_single_data = $slides_other_data[ get_the_ID() ];
 						?>
-						<div class="item" style="<?php echo $bg_image_style; ?>">
+						<div class="item" style="<?php echo esc_attr( $bg_image_style ); ?>">
 							<?php
 							if ( 'responsive-img' == $restaurant_recipe_fs_image_display_options ) {
 								echo '<img src="' . esc_url( $image_url[0] ) . '"/>';

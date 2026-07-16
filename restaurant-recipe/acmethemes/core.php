@@ -76,6 +76,18 @@ if ( ! function_exists( 'restaurant_recipe_setup' ) ) :
 			)
 		);
 
+				/*
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+		add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
+
 		// Set up the WordPress core custom background feature.
 		add_theme_support(
 			'custom-background',
@@ -160,11 +172,9 @@ function restaurant_recipe_scripts() {
 	jquery start*/
 	/*html5*/
 	wp_enqueue_script( 'html5', get_template_directory_uri() . '/assets/library/html5shiv/html5shiv.min.js', array( 'jquery' ), '3.7.3', false );
-	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
 	/*respond*/
 	wp_enqueue_script( 'respond', get_template_directory_uri() . '/assets/library/respond/respond.min.js', array( 'jquery' ), '1.1.2', false );
-	wp_script_add_data( 'respond', 'conditional', 'lt IE 9' );
 
 	/*Bootstrap*/
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/library/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '3.3.6', 1 );

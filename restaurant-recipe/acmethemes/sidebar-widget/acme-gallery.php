@@ -44,14 +44,14 @@ if ( ! class_exists( 'Restaurant_Recipe_Gallery' ) ) {
 	        $image_popup_type       = esc_attr( $instance[ 'image_popup_type' ] );
 	        ?>
             <p>
-                <label for="<?php echo $this->get_field_id( 'unique_id' ); ?>"><?php esc_html_e( 'Section ID', 'restaurant-recipe' ); ?></label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'unique_id' ); ?>" name="<?php echo $this->get_field_name( 'unique_id' ); ?>" type="text" value="<?php echo $unique_id; ?>" />
+                <label for="<?php echo esc_attr( $this->get_field_id( 'unique_id' ) ); ?>"><?php esc_html_e( 'Section ID', 'restaurant-recipe' ); ?></label>
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'unique_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'unique_id' ) ); ?>" type="text" value="<?php echo $unique_id; ?>" />
                 <br />
                 <small><?php esc_html_e('Enter a Unique Section ID. You can use this ID in Menu item for enabling One Page Menu.','restaurant-recipe')?></small>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title', 'restaurant-recipe' ); ?></label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+                <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'restaurant-recipe' ); ?></label>
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo $title; ?>" />
             </p>
             <!--updated code-->
             <label><?php esc_html_e( 'Select Pages', 'restaurant-recipe' ); ?></label>
@@ -154,8 +154,8 @@ if ( ! class_exists( 'Restaurant_Recipe_Gallery' ) ) {
             <!--updated code-->
 
             <p>
-                <label for="<?php echo $this->get_field_id( 'column_number' ); ?>"><?php esc_html_e( 'Column Number', 'restaurant-recipe' ); ?></label>
-                <select class="widefat" id="<?php echo $this->get_field_id( 'column_number' ); ?>" name="<?php echo $this->get_field_name( 'column_number' ); ?>" >
+                <label for="<?php echo esc_attr( $this->get_field_id( 'column_number' ) ); ?>"><?php esc_html_e( 'Column Number', 'restaurant-recipe' ); ?></label>
+                <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'column_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'column_number' ) ); ?>" >
                     <?php
                     $restaurant_recipe_widget_column_numbers = restaurant_recipe_widget_column_number();
                     foreach ( $restaurant_recipe_widget_column_numbers as $key => $value ){
@@ -167,8 +167,8 @@ if ( ! class_exists( 'Restaurant_Recipe_Gallery' ) ) {
                 </select>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'image_popup_type' ); ?>"><?php esc_html_e( 'Image Popup Type', 'restaurant-recipe' ); ?></label>
-                <select class="widefat" id="<?php echo $this->get_field_id( 'image_popup_type' ); ?>" name="<?php echo $this->get_field_name( 'image_popup_type' ); ?>" >
+                <label for="<?php echo esc_attr( $this->get_field_id( 'image_popup_type' ) ); ?>"><?php esc_html_e( 'Image Popup Type', 'restaurant-recipe' ); ?></label>
+                <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'image_popup_type' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_popup_type' ) ); ?>" >
                     <?php
                     $restaurant_recipe_gallery_image_popup = restaurant_recipe_gallery_image_popup();
                     foreach ( $restaurant_recipe_gallery_image_popup as $key => $value ){
@@ -187,7 +187,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Gallery' ) ) {
 			        <?php
 			        $restaurant_recipe_image_sizes = restaurant_recipe_get_image_sizes_options();
 			        foreach( $restaurant_recipe_image_sizes as $key => $restaurant_recipe_column_array ){
-				        echo ' <option value="'.esc_attr( $key ).'" '.selected( $restaurant_recipe_img_size, $key, 0). '>'.esc_attr( $restaurant_recipe_column_array ).'</option>';
+				        echo ' <option value="'.esc_attr( $key ).'" '.selected( esc_attr( $restaurant_recipe_img_size ), $key, 0). '>'.esc_attr( $restaurant_recipe_column_array ).'</option>';
 			        }
 			        ?>
                 </select>
@@ -260,7 +260,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Gallery' ) ) {
 	        $animation = "init-animate zoomIn";
 	        echo $args['before_widget'];
             ?>
-            <section id="<?php echo $unique_id;?>" class="at-widgets acme-gallery">
+            <section id="<?php echo esc_attr( $unique_id ); ?>" class="at-widgets acme-gallery">
                 <div class="full-width-container">
                     <?php
                     if( ! empty( $title ) ){

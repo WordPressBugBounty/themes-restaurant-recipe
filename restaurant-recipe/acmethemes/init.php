@@ -127,6 +127,8 @@ require restaurant_recipe_file_directory('acmethemes/gutenberg/gutenberg-init.ph
 
 /*themes info*/
 if ( is_admin() ) {
+add_action('init', function() {
     require restaurant_recipe_file_directory('acmethemes/at-theme-info/class-at-theme-info.php');
+    });
     require restaurant_recipe_file_directory('acmethemes/admin-notice/class-admin-notice-handler.php');
 }

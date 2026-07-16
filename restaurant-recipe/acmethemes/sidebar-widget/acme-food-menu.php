@@ -217,8 +217,8 @@ if ( ! class_exists( 'Restaurant_Recipe_Food_Menu' ) ) {
             </div>
             <!--updated code-->
             <p>
-                <label for="<?php echo $this->get_field_id( 'content_from' ); ?>"><?php _e( 'Content From', 'restaurant-recipe' ); ?>:</label>
-                <select class="widefat" id="<?php echo $this->get_field_id( 'content_from' ); ?>" name="<?php echo $this->get_field_name( 'content_from' ); ?>">
+                <label for="<?php echo esc_attr( $this->get_field_id( 'content_from' ) ); ?>"><?php _e( 'Content From', 'restaurant-recipe' ); ?>:</label>
+                <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'content_from' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'content_from' ) ); ?>">
 					<?php
 					$restaurant_recipe_about_content_from = restaurant_recipe_content_from();
 					foreach ( $restaurant_recipe_about_content_from as $key => $value ) {
@@ -230,12 +230,12 @@ if ( ! class_exists( 'Restaurant_Recipe_Food_Menu' ) ) {
                 </select>
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'content_number' ); ?>"><?php _e( 'Number of words in content', 'restaurant-recipe' ); ?>:</label>
+                <label for="<?php echo esc_attr( $this->get_field_id( 'content_number' ) ); ?>"><?php _e( 'Number of words in content', 'restaurant-recipe' ); ?>:</label>
                 <br/>
                 <small>
 					<?php esc_html_e('Please enter -1 to show full content or 0 to show none','restaurant-recipe'); ?>
                 </small>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'content_number' ); ?>" name="<?php echo $this->get_field_name( 'content_number' ); ?>" type="number" value="<?php echo $content_number; ?>" />
+                <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'content_number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'content_number' ) ); ?>" type="number" value="<?php echo $content_number; ?>" />
             </p>
             <p>
                 <label for="<?php echo esc_attr( $this->get_field_id( 'column_number' ) ); ?>"><?php esc_html_e( 'Column Number', 'restaurant-recipe' ); ?></label>
@@ -351,7 +351,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Food_Menu' ) ) {
 			            echo "</div>";
 		            }
 		            ?>
-                    <div <?php echo $div_attr;?>>
+                    <div <?php echo esc_attr( $div_attr ); ?>>
                         
 	                    <?php
 	                    $post_in = array();
@@ -406,7 +406,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Food_Menu' ) ) {
 				                    }
 				                    ?>
                                     <div class="<?php echo esc_attr( $restaurant_recipe_list_classes ); ?>">
-                                        <div class="at-food-menu-box <?php echo $animation; ?>">
+                                        <div class="at-food-menu-box <?php echo esc_attr( $animation ); ?>">
 						                    <?php
 						                    if( !empty( $price_link ) ){
 						                    ?>

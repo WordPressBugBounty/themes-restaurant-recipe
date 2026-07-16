@@ -21,7 +21,7 @@ if ( ! function_exists( 'restaurant_recipe_footer' ) ) :
 		?>
 		<div class="clearfix"></div>
 		</div><!-- #page -->
-		<footer class="site-footer" style=" <?php echo $style; ?>">
+		<footer class="site-footer" style=" <?php echo esc_attr( $style ); ?>">
 			<?php
 			$footer_column = 0;
 			if ( is_active_sidebar( 'footer-col-one' ) ) {

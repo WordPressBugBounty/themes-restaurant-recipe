@@ -15,7 +15,6 @@ if ( ! class_exists( 'Restaurant_Recipe_Theme_Info' ) ) {
 		private $page_title;
 		private $menu_title;
 		private $tabs;
-
 		/**
 		 * Constructor.
 		 */
@@ -540,10 +539,10 @@ if ( ! class_exists( 'Restaurant_Recipe_Theme_Info' ) ) {
 				elseif ( ! empty( $saved_actions ) and is_array( $saved_actions ) ) {
 
 					switch ( esc_html( $todo ) ) {
-						case 'add';
+						case 'add':
 							$saved_actions[ $action_id ] = true;
 							break;
-						case 'dismiss';
+						case 'dismiss':
 							$saved_actions[ $action_id ] = false;
 							break;
 					}
@@ -559,10 +558,10 @@ if ( ! class_exists( 'Restaurant_Recipe_Theme_Info' ) ) {
 							echo ' ' . esc_attr( $todo );
 							if ( $recommended_action['id'] == $action_id ) {
 								switch ( esc_html( $todo ) ) {
-									case 'add';
+									case 'add':
 										$saved_actions_new[ $action_id ] = true;
 										break;
-									case 'dismiss';
+									case 'dismiss':
 										$saved_actions_new[ $action_id ] = false;
 										break;
 								}
@@ -1232,7 +1231,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Theme_Info' ) ) {
 							if ( ! empty( $icon ) ) {
 								echo '<i class="' . $icon . '"></i>';
 							}
-							echo $title;
+							echo esc_html( $title );
 							echo '</h3>';
 						}
 
@@ -1415,7 +1414,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Theme_Info' ) ) {
 							if ( ! empty( $icon ) ) {
 								echo '<i class="' . $icon . '"></i>';
 							}
-							echo $title;
+							echo esc_html( $title );
 							echo '</h3>';
 						}
 						echo "<div class='faq-content'>";
@@ -1457,7 +1456,7 @@ if ( ! class_exists( 'Restaurant_Recipe_Theme_Info' ) ) {
 			// this is needed on all admin pages, not just the about page, for the badge action count in the WordPress main sidebar
 			wp_enqueue_style( 'restaurant-recipe-theme-info-css', get_template_directory_uri() . '/acmethemes/at-theme-info/css/at-theme-info.css' );
 
-			if ( 'appearance_page_' . $this->theme_slug . '-info' == $hook_suffix ) {
+			if ( 'appearance_page_' . $this->theme_slug . '-info' === $hook_suffix ) {
 
 				wp_enqueue_script( 'restaurant-recipe-theme-info-js', get_template_directory_uri() . '/acmethemes/at-theme-info/js/at-theme-info.js', array( 'jquery' ) );
 
